@@ -1,4 +1,7 @@
 spring:
+  profiles:
+    active: dev
+    include: logging
   application:
     name: p-service-hello
   # 应用服务 WEB 访问端口
@@ -6,6 +9,10 @@ server:
   port: 9011
   servlet:
     context-path: /server-hello
+  tomcat:
+    accesslog:
+      enabled: false
+
 
   # spring cloud access&secret config
   # 可以访问如下地址查看: https://usercenter.console.aliyun.com/#/manage/ak
@@ -13,15 +20,8 @@ server:
   #  alibaba.cloud.secret-key=****
 
   # Actuator Web 访问端口
-  tomcat:
-    accesslog:
-      enabled: true
-      buffered: true
-      directory: logs
-
 #  management.endpoints.jmx.exposure.include=*
 #  management.endpoints.web.exposure.include=*
 #  management.endpoint.health.show-details=always
 #  management.server.port=8081
-
 

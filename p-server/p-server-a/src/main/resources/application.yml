@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: p-service-a
+  # 应用服务 WEB 访问端口
+server:
+  port: 9012
+  servlet:
+    context-path: /server-a
+  tomcat:
+    accesslog:
+      enabled: false

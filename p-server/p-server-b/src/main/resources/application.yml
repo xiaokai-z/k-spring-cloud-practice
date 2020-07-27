@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: p-service-b
+  # 应用服务 WEB 访问端口
+server:
+  port: 9013
+  servlet:
+    context-path: /server-b
+  tomcat:
+    accesslog:
+      enabled: false
+feign:
+  hystrix:
+    enabled: true

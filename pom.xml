@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -12,6 +12,7 @@
 
     <modules>
         <module>p-server</module>
+        <module>p-base</module>
     </modules>
 
     <properties>
@@ -25,7 +26,17 @@
         <spring-cloud-alibaba.version>2.2.0.RELEASE</spring-cloud-alibaba.version>
         <guava.version>28.2-jre</guava.version>
         <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+
+        <p-server-a.version>1.0.0-SNAPSHOT</p-server-a.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
 
     <dependencyManagement>
         <dependencies>
@@ -64,6 +75,18 @@
             </releases>
         </repository>
     </repositories>
+
+    <!-- maven 制成品仓库 -->
+    <distributionManagement>
+        <repository>
+            <id>rdc-releases</id>
+            <url>https://packages.aliyun.com/maven/repository/2018771-release-MqDIwM/</url>
+        </repository>
+        <snapshotRepository>
+            <id>rdc-snapshots</id>
+            <url>https://packages.aliyun.com/maven/repository/2018771-snapshot-GwGWHh/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <build>
         <plugins>

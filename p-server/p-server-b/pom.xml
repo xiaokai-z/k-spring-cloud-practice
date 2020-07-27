@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>com.xk.cloud</groupId>
         <artifactId>p-server</artifactId>
+        <groupId>com.xk.cloud</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.xk.cloud</groupId>
-    <artifactId>p-server-hello</artifactId>
+
+    <artifactId>p-server-b</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>${project.artifactId}</name>
-    <description>Service Hello</description>
+    <description>Service B</description>
 
 
     <dependencies>
@@ -32,6 +31,13 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.xk.cloud</groupId>
+            <artifactId>p-server-a-api</artifactId>
+            <version>${p-server-a.version}</version>
         </dependency>
     </dependencies>
 

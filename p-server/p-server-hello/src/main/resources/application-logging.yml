@@ -1,0 +1,25 @@
+#配置日志输出的格式 官方文档 https://logback.qos.ch/manual/layouts.html
+#默认的配置地址 spring-boot-x.x.RELEASE.jar::org/springframework/boot/logging/logback/defaults.xml
+logging:
+  # 默认全部包的日志级别
+  level.root: info
+  #业务日志级别 pom中配置
+  #level.org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: trace
+  #开启缓存日志支持 用于追踪缓存问题
+  #level.org.springframework.cache.interceptor.CacheInterceptor: trace
+  #开启其它web相关日志
+  #level.web: debug
+  level.com.xk.cloud: debug
+
+  #pattern.console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%-15.15thread] [traceId] [serviceCode] [pServiceCode] [transactiontId] [userId] %clr(%-40.40logger{39}) %line - %msg%n"
+  #%-20c 	（若空间长度小于20，则右边用空格填充）
+  #%-20.30c（若名字空间长度小于20，则右边用空格填充；若名字空间长度超过30，截去多余字符）
+  #%logger{10} 用来简化类名 比如	mainPackage.sub.sample.Bar 	m.s.s.Bar ，配合上述的 %-使用
+  #%X{userId} 自定义字段 需要使用MDC.put("userId", userId);
+  pattern.console: "%d{yyyy-MM-dd HH:mm:ss.SSS} | %highlight(%-5level) | %-15.15thread | %cyan(%-40.40logger{39}) | %yellow(%line) | %green(%X{userId:-system}) | %gray(%X{traceId:-0}) |  %msg%n"
+  #配置日志文件格式,文件日志输出完整信息，| 分隔
+  pattern.file: "%d{yyyy-MM-dd HH:mm:ss.SSS} | %level | %thread | %logger | %line | %X{userId:-system} | %X{traceId:-0} | %msg%n"
+  file:
+    max-size: 10MB
+    path: /data/log
+
